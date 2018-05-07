@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy,  } from '@angular/core';
 import { Authenticate } from '@demo-app/data-models';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,13 @@ import { Authenticate } from '@demo-app/data-models';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   login(authenticate: Authenticate) {
-    console.log('authenticate', authenticate);
+    this.authService.login(authenticate).subscribe()
   }
 
 }

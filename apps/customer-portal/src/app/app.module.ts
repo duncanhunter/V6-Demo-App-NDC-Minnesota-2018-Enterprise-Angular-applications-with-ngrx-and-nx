@@ -15,7 +15,9 @@ import { authRoutes, AuthModule } from '@demo-app/auth';
   imports: [
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([{ path: 'auth', children: authRoutes }], {
+    RouterModule.forRoot([
+      { path: 'auth', children: authRoutes }
+    ], {
       initialNavigation: 'enabled'
     }),
     //StoreModule.forRoot({},{ metaReducers : !environment.production ? [storeFreeze] : [] }),
