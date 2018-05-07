@@ -44,6 +44,7 @@
     "@ngrx/store": "5.2.0",
     "@ngrx/store-devtools": "5.2.0",
     "@nrwl/nx": "1.0.3",
+    "@ultimate/ngxerrors": "^1.4.0",
     "core-js": "^2.4.1",
     "ngrx-store-freeze": "^0.2.1",
     "rxjs": "^5.5.6",

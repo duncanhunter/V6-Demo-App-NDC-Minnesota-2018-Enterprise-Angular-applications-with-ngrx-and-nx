@@ -1,3 +1,29 @@
-<input #username type="text" placeholder="username">
+<!-- <input #username type="text" placeholder="username">
 <input #password type="text" placeholder="password">
-<button (click)="login({username: username.value, password:password.value})">Login</button>
+<button (click)="login({username: username.value, password:password.value})">Login</button> -->
+<pre>{{loginForm.value | json}}</pre>
+
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center none" novalidate>
+            <mat-form-field>
+                <input matInput placeholder="username" type="text" formControlName="username">
+                <mat-error>
+                    <div ngxError="required" when="touched">
+                        Username is required
+                    </div>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="password" type="text" formControlName="password">
+                <mat-error>
+                    <div ngxError="required" when="touched">
+                        Password is required
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <button mat-raised-button (click)="login()">login</button>
+    </mat-card-content>
+</mat-card>

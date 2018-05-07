@@ -5,6 +5,8 @@ import { LoginComponent } from './containers/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './services/auth/auth.service';
+import { MaterialModule } from '@demo-app/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const authRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -12,7 +14,7 @@ export const authRoutes: Route[] = [
 
 const COMPONENTS = [LoginComponent, LoginFormComponent];
 @NgModule({
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule, MaterialModule, ReactiveFormsModule],
   declarations: [COMPONENTS],
   exports: [COMPONENTS],
   providers: [AuthService]
