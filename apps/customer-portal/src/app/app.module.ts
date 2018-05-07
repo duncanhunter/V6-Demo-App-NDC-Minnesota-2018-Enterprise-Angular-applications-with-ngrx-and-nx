@@ -26,4 +26,6 @@ import { storeFreeze } from 'ngrx-store-freeze';
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+
+}
