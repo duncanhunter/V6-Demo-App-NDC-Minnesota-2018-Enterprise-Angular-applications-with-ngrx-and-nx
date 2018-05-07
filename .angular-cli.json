@@ -64,6 +64,13 @@
       "tags": []
     },
     {
+      "name": "data-models",
+      "root": "libs/data-models/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "$workspaceRoot",
       "root": ".",
       "appRoot": ""
