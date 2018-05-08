@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { authReducer, initialState as authInitialState } from './+state/auth.reducer';
 import { AuthEffects } from './+state/auth.effects';
+import { AuthAdminGuard } from '@demo-app/auth';
 
 export const authRoutes: Route[] = [
   { path: 'login', component: LoginComponent }
@@ -34,6 +35,7 @@ const COMPONENTS = [LoginComponent, LoginFormComponent];
   providers: [
     AuthService,
     AuthGuard,
+    AuthAdminGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

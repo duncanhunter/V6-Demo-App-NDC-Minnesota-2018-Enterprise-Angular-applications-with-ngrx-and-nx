@@ -11,7 +11,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { LayoutModule } from '@demo-app/admin-portal/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthGuard, authRoutes, AuthModule } from '@demo-app/auth';
+import { AuthGuard, authRoutes, AuthModule, AuthAdminGuard } from '@demo-app/auth';
 
 @NgModule({
   imports: [
@@ -24,6 +24,11 @@ import { AuthGuard, authRoutes, AuthModule } from '@demo-app/auth';
         path: 'user-profile',
         loadChildren: '@demo-app/user-profile#UserProfileModule',
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'users',
+        loadChildren: '@demo-app/admin-portal/users#UsersModule',
+        canActivate: [AuthAdminGuard]
       }
     ]),
     StoreModule.forRoot({}),

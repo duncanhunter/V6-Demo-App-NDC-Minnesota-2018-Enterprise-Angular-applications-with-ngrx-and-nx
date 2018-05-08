@@ -8,7 +8,9 @@
     "**/*.ts"
     , "../../../libs/user-profile/index.ts"
 
-  ],
+  
+    , "../../../libs/admin-portal/users/index.ts"
+],
   "exclude": [
     "**/*.spec.ts"
   ]
