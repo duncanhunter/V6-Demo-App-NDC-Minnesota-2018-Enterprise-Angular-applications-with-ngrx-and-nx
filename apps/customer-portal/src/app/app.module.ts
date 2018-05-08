@@ -9,21 +9,27 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
-import { authRoutes, AuthModule } from '@demo-app/auth';
+import { authRoutes, AuthModule, AuthGuard } from '@demo-app/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 @NgModule({
   imports: [
     BrowserModule,
     NxModule.forRoot(),
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      { path: 'auth', children: authRoutes },
-      { path: 'user-profile', loadChildren: '@demo-app/user-profile#UserProfileModule' }
-    ], {
+    RouterModule.forRoot(
+      [
+        { path: 'auth', children: authRoutes },
+        {
+          path: 'user-profile',
+          loadChildren: '@demo-app/user-profile#UserProfileModule',
+          canActivate: [AuthGuard]
+        }
+      ],
+      {
         initialNavigation: 'enabled'
-      }),
+      }
+    ),
     //StoreModule.forRoot({},{ metaReducers : !environment.production ? [storeFreeze] : [] }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
@@ -34,4 +40,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
