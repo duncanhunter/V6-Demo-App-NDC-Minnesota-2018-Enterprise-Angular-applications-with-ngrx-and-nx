@@ -11,6 +11,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { authRoutes, AuthModule, AuthGuard } from '@demo-app/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@demo-app/customer-portal/layout';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
-    AuthModule
+    AuthModule,
+    LayoutModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
