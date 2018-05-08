@@ -91,6 +91,13 @@
       "tags": []
     },
     {
+      "name": "admin-portal/layout",
+      "root": "libs/admin-portal/layout/src",
+      "test": "../../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "auth",
       "root": "libs/auth/src",
       "test": "../../../test.js",

@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" fxLayout="row">
+  <span>Admin Portal</span>
+    <div class="right-nav">
+      <span>{{(user$ | async)?.username}}</span>
+    </div>
+  </mat-toolbar>
+  <ng-content></ng-content>

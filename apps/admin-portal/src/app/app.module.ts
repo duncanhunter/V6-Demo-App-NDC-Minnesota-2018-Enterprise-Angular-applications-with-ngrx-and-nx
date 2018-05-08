@@ -9,16 +9,30 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { LayoutModule } from '@demo-app/admin-portal/layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard, authRoutes, AuthModule } from '@demo-app/auth';
 
 @NgModule({
   imports: [
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'user-profile' },
+      { path: 'auth', children: authRoutes },
+      {
+        path: 'user-profile',
+        loadChildren: '@demo-app/user-profile#UserProfileModule',
+        canActivate: [AuthGuard]
+      }
+    ]),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule
+    StoreRouterConnectingModule,
+    LayoutModule,
+    AuthModule,
+    BrowserAnimationsModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
