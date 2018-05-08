@@ -64,6 +64,13 @@
       "tags": []
     },
     {
+      "name": "customer-portal/layout",
+      "root": "libs/customer-portal/layout/src",
+      "test": "../../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "data-models",
       "root": "libs/data-models/src",
       "test": "../../../test.js",
