@@ -9,6 +9,7 @@ import {
   initialState as usersInitialState
 } from './+state/users.reducer';
 import { UsersEffects } from './+state/users.effects';
+import { UsersService } from '@demo-app/admin-portal/users/src/services/users.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { UsersEffects } from './+state/users.effects';
     EffectsModule.forFeature([UsersEffects])
   ],
   declarations: [UserListComponent],
-  providers: [UsersEffects]
+  providers: [UsersEffects, UsersService]
 })
 export class UsersModule {}
